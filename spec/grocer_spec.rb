@@ -70,7 +70,7 @@ describe "Grocer" do
       end
 
       it "removes the number of discounted items from the original item's count" do
-        expect(@avocado_result["AVOCADO"][:price]).to eq(3.00)
+        expect(@avocado_result["AVOCADO"][:price]).to eq(3.0)
         expect(@avocado_result["AVOCADO"][:count]).to eq(0)
       end
 
@@ -288,7 +288,7 @@ describe "Grocer" do
         cart = Array.new(3, beer)
         beer_coupon = find_coupon("BEER")
         coupons = [beer_coupon, beer_coupon]
-        expect(checkout(cart, coupons)).to eq(33.00)
+        expect(checkout(cart, coupons)).to eq(27.00)
       end
     end
 
