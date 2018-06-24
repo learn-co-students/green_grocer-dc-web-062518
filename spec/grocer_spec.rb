@@ -288,7 +288,7 @@ describe "Grocer" do
         cart = Array.new(3, beer)
         beer_coupon = find_coupon("BEER")
         coupons = [beer_coupon, beer_coupon]
-        expect(checkout(cart, coupons)).to eq(27.00)
+        expect(checkout(cart, coupons)).to eq(33.00)
       end
     end
 

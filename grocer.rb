@@ -40,8 +40,13 @@ def apply_coupons(cart, coupons)
             new_pcc_hash = {price: coupon[:cost], clearance: pcc_hash[:clearance], count: counter += 1}
             new_hash[item_key_with_coupon] = new_pcc_hash
           elsif pcc_hash[:count] < 0
-            new_hash[item_key] = original_pcc_hash
-            new_hash[item_key_with_coupon] = {price: coupon[:cost], clearance: pcc_hash[:clearance], count: counter += 1}
+            if new_hash.has_key?(item_key_with_coupon) == false
+              new_hash[item_key] = original_pcc_hash
+            elsif new_hash.has_key?(item_key_with_coupon)
+              counter = new_hash[item_key_with_coupon][:count]
+              pcc_hash[:count] += coupon[:num]
+            end
+            new_hash[item_key_with_coupon] = {price: coupon[:cost], clearance: pcc_hash[:clearance], count: counter}
           end
         else
           new_hash[item_key] = pcc_hash
