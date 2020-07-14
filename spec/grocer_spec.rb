@@ -70,7 +70,7 @@ describe "Grocer" do
       end
 
       it "removes the number of discounted items from the original item's count" do
-        expect(@avocado_result["AVOCADO"][:price]).to eq(3.00)
+        expect(@avocado_result["AVOCADO"][:price]).to eq(3.0)
         expect(@avocado_result["AVOCADO"][:count]).to eq(0)
       end
 
